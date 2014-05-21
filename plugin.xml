@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.wakelock.wakelock.Wakelock"
+        version="1.5.2">
+
+
+    <name>Wakelock</name>
+    <description>Wakelock for cordova plugin</description>
+    <author>Wakelock</author>
+    <keywords>Wakelock</keywords>
+    <license>Apache 2.0 License</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0"/>
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+
+
+        <js-module src="www/wakelock.js" name="wakelock">
+            <clobbers target="window.plugins.Wakelock"/>
+        </js-module>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="WakelockPlugin">
+                <param name="android-package" value="com.wakelock.wakelock.WakelockPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.WAKE_LOCK"/>
+            <uses-permission android:name="android.permission.DEVICE_POWER"/>
+        </config-file>
+
+        <source-file src="src/android/WakelockPlugin.java" target-dir="src/com/wakelock/wakelock"/>
+
+    </platform>
+
+</plugin>
