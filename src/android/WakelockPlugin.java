@@ -32,7 +32,7 @@ public class WakelockPlugin extends CordovaPlugin {
    				if (mWakelock == null) {
 
    				    PowerManager pm = (PowerManager)cordova.getActivity().getSystemService(Context.POWER_SERVICE);
-   					mWakelock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK|PowerManager.ON_AFTER_RELEASE, aWakeLock);
+   					mWakelock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK|PowerManager.ON_AFTER_RELEASE, "PostLocationService");
    			   		mWakelock.acquire();
    				}
                 }
